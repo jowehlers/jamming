@@ -7,16 +7,17 @@
     "@testing-library/react": "^13.4.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-	"homepage": "http://jowehlers.github.io/jamming"
+    "web-vitals": "^2.1.4",
+    "install": "^0.13.0"
   },
+  "homepage": "http://jowehlers.github.io/jamming",  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-	"predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +40,5 @@
   "devDependencies": {
     "gh-pages": "^6.0.0"
   }
-
-
 }
+
