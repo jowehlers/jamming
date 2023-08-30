@@ -1,6 +1,6 @@
 import React from 'react';
-import { TokenProvider } from './TokenContext';
-import Authorize from './Authorize';
+import { TokenProvider } from './components/Authorization/TokenContext';
+import Authorize from './components/Authorization/Authorize';
 
 const App = () => {
   return (

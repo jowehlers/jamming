@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import useSpotifyToken from './useSpotifyToken';
+import useSpotifyToken from '../../hooks/useSpotifyToken';
 
 const TokenContext = createContext();
 
