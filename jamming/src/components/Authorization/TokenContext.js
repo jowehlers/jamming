@@ -1,7 +1,13 @@
-import React from 'react';
-import useSpotifyToken from '../hooks/useSpotifyToken';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import useSpotifyToken from './useSpotifyToken';
 
-function Authorize() {
+const TokenContext = createContext();
+
+export const useToken = () => {
+  return useContext(TokenContext);
+};
+
+export const TokenProvider = ({ children }) => {
   const token = useSpotifyToken();
 
   const loginWithSpotify = () => {
@@ -10,16 +16,12 @@ function Authorize() {
     const scope = "user-read-private user-read-email";
 
     const authUrl = `https://accounts.spotify.com/authorize?client_id=${client_id}&redirect_uri=${encodeURIComponent(redirect_uri)}&scope=${encodeURIComponent(scope)}&response_type=token`;
-
     window.location.href = authUrl;
   };
 
   return (
-    <div className="App">
-      <button onClick={loginWithSpotify}>Login with Spotify</button>
-      {token ? <p>Token received: {token}</p> : <p>No token received yet</p>}
-    </div>
+    <TokenContext.Provider value={{ token, loginWithSpotify }}>
+      {children}
+    </TokenContext.Provider>
   );
-}
-
-export default Authorize;
+};
