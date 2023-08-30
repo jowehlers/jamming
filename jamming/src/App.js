@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import useSpotifyToken from './useSpotifyToken';
+import Authorize from './Authorize';
 
-function App() {
+const App = () => {
+  const token = useSpotifyToken();
+  //use below for learning and testing purposes only
+  const [tokenReceived, setTokenReceived] = useState(false);
+
+  useEffect(() => {
+    if (token) {
+      setTokenReceived(true);
+      console.log('Token received:', token);
+    }
+  }, [token]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Authorize />
+      {/*remove the following after learning and verifying that the token is being received*/}
+      {tokenReceived && <div className="alert">Token Received: {token}</div>}
+      {/* You can use `token` here to pass it to other components if needed */}
     </div>
   );
-}
+};
 
 export default App;

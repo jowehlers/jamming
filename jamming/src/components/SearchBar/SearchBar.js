@@ -1,0 +1,1 @@
+// addthe search button to this component as well
