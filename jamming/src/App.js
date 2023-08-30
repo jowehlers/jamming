@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import useSpotifyToken from '../hooks/useSpotifyToken';
-import Authorize from './Authorize';
+import useSpotifyToken from './hooks/useSpotifyToken';
+import Authorize from './components/Authorize';
 
 const App = () => {
   const token = useSpotifyToken();
