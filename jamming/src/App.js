@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import useSpotifyToken from './useSpotifyToken';
+import useSpotifyToken from '../hooks/useSpotifyToken';
 import Authorize from './Authorize';
 
 const App = () => {
