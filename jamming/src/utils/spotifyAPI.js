@@ -9,13 +9,15 @@ export async function fetchProfile(token) {
     return await result.json();
 }
 
-export const fetchPlaylists = async (token=null, spotifyUserApiHref=null) => {
+export const fetchPlaylists = async (token=null, spotifyUserApiEP=null) => {
     console.log("here in fetchPlaylists");
-    console.log({token}, { spotifyUserApiHref });
+    console.log(token, spotifyUserApiEP);
     
-    const result = await fetch(`${spotifyUserApiHref}/playlists`, {        
+    const result = await fetch(`${spotifyUserApiEP}/playlists`, {        
         method: "GET", headers: { Authorization: `Bearer ${token}` }
     });
+
+    console.log(result);
 
     return await result.json();
 }

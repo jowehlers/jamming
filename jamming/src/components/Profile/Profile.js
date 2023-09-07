@@ -12,8 +12,12 @@ const ProfileComponent = ({ token , setSpotifyUserApiEP}) => {
         fetchProfile(token)
           .then((data) => {
             setProfile(data);
-            setSpotifyUserApiEP(data.HREF); // Set the profile ID
-            console.log(`set profile to ${data.HREF}`);
+            console.log("set profile to data");          
+            console.log(data);
+
+            console.log(`set EP to ${data.href}`);
+            setSpotifyUserApiEP(data.href); // Set the profile ID
+            
           })
           .catch(error => {
             console.error('Error fetching profile:', error);
@@ -39,10 +43,10 @@ const ProfileComponent = ({ token , setSpotifyUserApiEP}) => {
                   <div id="imgUrl">{profile.images[0].url}</div>
                 </>
               )}
-              <div id="id">{profile.id}</div>
+              {/*<div id="id">{profile.id}</div>
               <div id="email">{profile.email}</div>
               <a id="uri" href={profile.external_urls.spotify}>{profile.uri}</a>
-              <a id="url" href={profile.href}>{profile.href}</a>
+              <a id="url" href={profile.href}>{profile.href}</a>*/}
             </>
           ) : (
             <p>Loading...</p>

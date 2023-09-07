@@ -14,15 +14,26 @@ const AppContent = () => {
   //<Authorize />
   return (
     <div>
-      {/*token ? <p>Token received: {token}</p> : <button onClick={loginWithSpotify}>Login with Spotify</button>*/}
-      {token ? <ProfileComponent token={token} spotifyUserApiEP={setSpotifyUserApiEP} /> : <Authorize />}
-      {spotifyUserApiEP ? <PlaylistsComponent token={token} spotifyUserApiEP={spotifyUserApiEP} /> : <p>Waiting for list token T:{token} EP:{spotifyUserApiEP}</p>}
+      <div className="Profile">
+        {/*token ? <p>Token received: {token}</p> : <button onClick={loginWithSpotify}>Login with Spotify</button>*/}
+        {token ? <ProfileComponent token={token} setSpotifyUserApiEP={setSpotifyUserApiEP} /> : <Authorize />}
+        {console.log("I'm in appContent setting SpotifyUserApiEP")}
+        {console.log(spotifyUserApiEP)}
+      </div>
+      <div className="Playlists">
+        {spotifyUserApiEP ? <PlaylistsComponent token={token} spotifyUserApiEP={spotifyUserApiEP} /> : <p>Waiting for list token T:{token} EP:{spotifyUserApiEP}</p>}
+      </div>
+      <div className="Tracks">
+        <p>Tracks</p>
+      </div>
     </div>
   );
   /*return (
     token ? <ProfileComponent token={token} /> : <Authorize />
   );*/
 }
+
+
 
 const App = () => {
   return (

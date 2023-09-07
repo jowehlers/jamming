@@ -5,24 +5,26 @@ const PlaylistsComponent = ({ token , spotifyUserApiEP}) => {
   const [playlists, setPlaylists] = useState(null);
   
   useEffect(() => {
-    if (token && playlists) {
-        console.log("here in profileLists use effect");
-        console.log({ token , });
+    if (token && spotifyUserApiEP) {
+        console.log("here in PlayListsComponent of Playlist.js");
+        console.log(token, spotifyUserApiEP);
         
         fetchPlaylists(token, spotifyUserApiEP)
           .then((data) => {
-            setPlaylists(data);
+            console.log("Setting playlists with: ", data);
+            setPlaylists(data.items);
           })
           .catch(error => {
             console.error('Error fetching profile:', error);
             // Handle the error
           });
       } else {
-        console.log("no token in profileComponent use effect");
+        console.log("no token in PlaylistsComponent of Playlist.js");
+        console.log(token, spotifyUserApiEP);
       }
-    }, [token, playlists, spotifyUserApiEP]);
+    }, [token, spotifyUserApiEP]);
   
-// don't forget the save to spotify button
+// note to self - don't forget to add the save to spotify button
  
 
   if (!playlists) return <div>Loading...</div>;
