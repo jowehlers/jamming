@@ -15,6 +15,7 @@ const useSpotifyToken = () => {
       }, {});
 
     if (hash.access_token && hash.expires_in) {
+      //expiresin is also given in the response from spotify so likely shouldn't hard code it as current known value of 1 minute?
       const expiresAt = new Date().getTime() + hash.expires_in * 1000;
       setToken(hash.access_token);
       setExpiresIn(expiresAt);

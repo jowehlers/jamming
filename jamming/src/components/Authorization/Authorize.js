@@ -6,9 +6,9 @@ const Authorize = () => {
 
   return (
     <div>
-      <button onClick={loginWithSpotify}>Login with Spotify</button>
-      {token ? <p>Token received: {token}</p> : <p>No token received yet</p>}
+       {token ? <p>Token received: {token}</p> : <button onClick={loginWithSpotify}>Login with Spotify</button>}
     </div>
+
   );
 };
 
